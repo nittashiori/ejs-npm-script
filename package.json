@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch:all": "run-p watch:ejs2html watch:scss2cssprefix watch:js watch:static start:server",
-    "build:all": "run-p compile:ejs2html compile:scss2cssprefix build:js copy:static min:js min:css delete:map",
+    "build:all": "run-p compile:ejs2html compile:scss2cssprefix build:js copy:static delete:map",
     "format:all": "run-p format:scss format:js",
     "prepare:all": "run-p min:js min:css delete:map",
     "compile:ejs2html": "ejs-cli -b src/ejs/ \"/**/*.ejs\" -o dist/",
