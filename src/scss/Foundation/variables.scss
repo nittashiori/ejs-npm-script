@@ -1,0 +1,18 @@
+// Breakpoints
+// ----------------------------------------
+
+$breakpoints: (
+    'sm': 375px,
+    'md': 768px,
+    'lg': 1024px,
+    'xl': 1200px,
+) !default;
+
+// Color
+// ----------------------------------------
+$main-color: coral;
+$sub-color: lightgreen;
+
+// Font
+// ----------------------------------------
+$standard-font-size: 62.5%;

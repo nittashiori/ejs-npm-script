@@ -1,0 +1,35 @@
+# Browsers that we support
+
+defaults
+not IE 11
+maintained node versions
+
+and_chr 87
+and_ff 83
+and_qq 10.4
+and_uc 12.12
+android 81
+baidu 7.12
+chrome 87
+chrome 86
+edge 87
+edge 86
+firefox 84
+firefox 83
+firefox 78
+ios_saf 14.0-14.3
+ios_saf 13.4-13.7
+ios_saf 12.2-12.4
+kaios 2.5
+node 15.5.0
+node 14.15.0
+node 12.20.0
+node 10.23.0
+op_mini all
+op_mob 59
+opera 72
+opera 71
+safari 14
+safari 13.1
+samsung 13.0
+samsung 12.0

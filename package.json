@@ -1,0 +1,83 @@
+{
+  "name": "basic-npm-script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch:all": "run-p watch:ejs2html watch:scss2cssprefix watch:js watch:static start:server",
+    "build:all": "run-p compile:ejs2html compile:scss2cssprefix build:js copy:static min:js min:css delete:map",
+    "format:all": "run-p format:scss format:js",
+    "prepare:all": "run-p min:js min:css delete:map",
+    "compile:ejs2html": "ejs-cli -b src/ejs/ \"/**/*.ejs\" -o dist/",
+    "watch:ejs2html": "chokidar \"src/ejs/\" -c \"npm run compile:ejs2html\" --initial",
+    "start:server": "browser-sync start -s dist -w src/*.html src/css/*.css src/js/*.js",
+    "compile:css2cssprefix": "postcss dist/css/style.css -u autoprefixer -o dist/css/style.css",
+    "compile:scss2css": "node-sass src/scss/style.scss --importer node_modules/node-sass-globbing/index.js dist/css/style.css --output-style expanded --source-map dist/css/",
+    "compile:scss2cssprefix": "run-s compile:scss2css compile:css2cssprefix",
+    "watch:scss2cssprefix": "chokidar \"src/scss/\" --command \"npm run compile:scss2cssprefix\" --initial",
+    "build:js": "browserify ./src/js/index.js -t babelify -o ./dist/js/index.js",
+    "watch:js": "chokidar \"src/js/\" -c \"npm run build:js\" --initial",
+    "imagemin": "node imagemin.js",
+    "copy:static": "cpx \"src/static/**/*\" -c \"npm run imagemin\" dist/",
+    "watch:static": "chokidar \"src/static/**/*\" -c \"npm run copy:static\" --initial",
+    "delete:dist": "rimraf dist",
+    "copy:sitemapxml": "cpx \"src/sitemap.xml\" dist/",
+    "prewatch:all": "run-s delete:dist copy:sitemapxml",
+    "lint:scss": "stylelint \"**/*.scss\"",
+    "format:scss": "stylelint --fix \"**/*.scss\"",
+    "lint:js": "eslint src/js/**/*.js",
+    "format:js": "eslint src/js/**/*.js --fix",
+    "min:css": "cleancss -o dist/css/style.css dist/css/style.css",
+    "min:js": "uglifyjs dist/js/index.js -o dist/js/index.js",
+    "delete:map": "rimraf dist/**/*.map"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "autoprefixer": "^10.2.1",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.26.13",
+    "browserify": "^17.0.0",
+    "chokidar-cli": "^2.1.0",
+    "clean-css-cli": "^4.3.0",
+    "cpx": "^1.5.0",
+    "ejs-cli": "^2.2.1",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "imagemin-cli": "^6.0.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-keep-folder": "^5.3.2",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.1",
+    "imagemin-svgo": "^7.1.0",
+    "node-sass": "^5.0.0",
+    "node-sass-globbing": "^0.0.23",
+    "npm-run-all": "^4.1.5",
+    "nunjucks-cli": "^1.0.0",
+    "onchange": "^7.1.0",
+    "postcss-cli": "^8.3.1",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "stylelint": "^13.8.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.18.0",
+    "uglify-es": "^3.3.9"
+  }
+}
