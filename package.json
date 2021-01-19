@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch:all": "run-p watch:ejs2html watch:scss2cssprefix watch:js watch:static start:server",
-    "build:all": "run-p compile:ejs2html compile:scss2cssprefix build:js copy:static min:js min:css delete:map",
+    "dev": "run-p watch:ejs2html watch:scss2cssprefix watch:js watch:static start:server",
+    "build": "run-p compile:ejs2html compile:scss2cssprefix build:js copy:static delete:map",
     "format:all": "run-p format:scss format:js",
     "prepare:all": "run-p min:js min:css delete:map",
     "compile:ejs2html": "ejs-cli -b src/ejs/ \"/**/*.ejs\" -o dist/",
@@ -69,6 +69,7 @@
     "npm-run-all": "^4.1.5",
     "nunjucks-cli": "^1.0.0",
     "onchange": "^7.1.0",
+    "postcss": "^8.2.4",
     "postcss-cli": "^8.3.1",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",

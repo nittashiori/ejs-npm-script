@@ -16,9 +16,9 @@
 ## 使い方
 
 -   `npm install` でパッケージをインストール。
--   `npm run watch:all` でローカル開発起動。
+-   `npm run dev` でローカル開発起動。
 -   `npm run format:all` でファイル整形。（多分あまり使わない）
--   `npm run build:all` でファイル削除、圧縮。公開用ファイルを出力。
+-   `npm run build` でフ公開用ファイルを出力。
 
 ## ファイル構造
 
