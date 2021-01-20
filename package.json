@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "run-p watch:ejs2html watch:scss2cssprefix watch:js watch:static start:server",
-    "build": "run-p compile:ejs2html compile:scss2cssprefix build:js copy:static delete:map",
+    "build": "run-s compile:ejs2html compile:scss2cssprefix build:js copy:static min:css min:js delete:map copy:sitemapxml copy:robotstxt",
     "format:all": "run-p format:scss format:js",
-    "prepare:all": "run-p min:js min:css delete:map",
     "compile:ejs2html": "ejs-cli -b src/ejs/ \"/**/*.ejs\" -o dist/",
     "watch:ejs2html": "chokidar \"src/ejs/\" -c \"npm run compile:ejs2html\" --initial",
     "start:server": "browser-sync start -s dist -w src/*.html src/css/*.css src/js/*.js",
@@ -22,6 +21,7 @@
     "watch:static": "chokidar \"src/static/**/*\" -c \"npm run copy:static\" --initial",
     "delete:dist": "rimraf dist",
     "copy:sitemapxml": "cpx \"src/sitemap.xml\" dist/",
+    "copy:robotstxt": "cpx \"src/robots.txt\" dist/",
     "prewatch:all": "run-s delete:dist copy:sitemapxml",
     "lint:scss": "stylelint \"**/*.scss\"",
     "format:scss": "stylelint --fix \"**/*.scss\"",
