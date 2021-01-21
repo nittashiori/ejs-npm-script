@@ -11,15 +11,18 @@
 -   EJS を HTML ファイルに変換
 -   Sass を CSS に変換
 -   画像ファイルのデータ圧縮（TinyPng を使わなくても画像を自動圧縮する）
+    -   ローカル開発の場合は`npm build:imagemin`で圧縮
+    -   公開時は自動で画像を圧縮 
 -   Browser-Sync によるオートリロード
 -   CSS と js のファイル圧縮
 
 ## 使い方
 
--   `npm install` でパッケージをインストール。
+-   `npm install` でパッケージをインストール。（localhost:3000）
 -   `npm run dev` でローカル開発起動。
--   `npm run format:all` でファイル整形。（多分あまり使わない）
--   `npm run build` でフ公開用ファイルを出力。
+-   `npm run format:all` でファイル整形。
+-   `npm run build` で公開用ファイルを出力。
+-   `npm build:imagemin` で src/img 内の画像を圧縮して dist/img に出力。
 
 ## ファイル構造
 
