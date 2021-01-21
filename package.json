@@ -17,7 +17,6 @@
     "build:js": "browserify ./src/js/index.js -t babelify -o ./dist/js/index.js",
     "watch:js": "chokidar \"src/js/\" -c \"npm run build:js\" --initial",
     "build:imagemin": "node imagemin.js",
-    "watch:imagemin": "chokidar \"src/static/img/**\" -c \"npm run build:imagemin\" --initial",
     "copy:static": "cpx \"src/static/**/*\" dist/",
     "watch:static": "chokidar \"src/static/**/*\" -c \"npm run copy:static\" --initial",
     "delete:dist": "rimraf dist",

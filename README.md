@@ -18,8 +18,9 @@
 
 -   `npm install` でパッケージをインストール。
 -   `npm run dev` でローカル開発起動。
--   `npm run format:all` でファイル整形。（多分あまり使わない）
--   `npm run build` でフ公開用ファイルを出力。
+-   `npm run format:all` でファイル整形。
+-   `npm run build` で公開用ファイルを出力。
+-   `npm build:imagemin` で src/img 内の画像を圧縮して dist/img に出力。
 
 ## ファイル構造
 
