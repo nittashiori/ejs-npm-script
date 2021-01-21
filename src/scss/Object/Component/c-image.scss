@@ -1,0 +1,8 @@
+.c-image {
+  display: block;
+  max-width: 400px;
+  margin: 20px 0;
+  @include media(md, max) {
+    max-width: 100%;
+  }
+}

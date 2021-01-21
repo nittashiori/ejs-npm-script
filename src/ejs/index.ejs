@@ -1,17 +1,27 @@
-<% var title = 'トップのタイトルタグ'; %>
+<% var pagetitle = ''; %>
 <% var description = 'トップのディスクリプション'; %>
 <% var path = ''; %>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<% include ../_include/_meta.ejs %>
+</head>
+<body>
 <% include ../_include/_header.ejs %>
-
 <!-- /content -->
-<div id="content">
-  <div class="inner">
+<div class="l-content">
+  <div class="l-inner">
 
-    <p>ここはトップページです</p>
-    <a href="about/">aboutページに移動</a>
-    <img src="img/sample.jpg" alt="サンプル画像">
+    <p>
+      ここはトップページです<br>
+      <br><a href="about/">aboutページに移動</a>
+    </p>
+    <img class="c-image" src="img/sample.jpg" alt="サンプル画像">
 
   </div><!-- /inner -->
 </div><!-- /content -->
 
 <% include ../_include/_footer.ejs %>
+</body>
+</html>
